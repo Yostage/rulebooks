@@ -236,7 +236,7 @@ Rulebooks.register({
             { t: "p", html: "During their turn each commando may perform 1 attack (card effects may grant more). Each attack is fully resolved before another begins. Resolve these steps in order:" },
             { t: "steps", items: [
               { n: "1", title: "Choose a Target", html: "Choose an enemy within range of your current weapon." },
-              { n: "2", title: "Gather &amp; Roll Dice", html: "Gather the number of commando dice your current weapon provides (effects may add dice), then roll. Resolve any <strong>criticals</strong> first: each counts as 1 success and \"explodes,\" adding 1 commando die to the pool which is rolled immediately. Keep resolving criticals as they appear — there is no limit." },
+              { n: "2", title: "Gather & Roll Dice", html: "Gather the number of commando dice your current weapon provides (effects may add dice), then roll. Resolve any <strong>criticals</strong> first: each counts as 1 success and \"explodes,\" adding 1 commando die to the pool which is rolled immediately. Keep resolving criticals as they appear — there is no limit." },
               { n: "3", title: "Resolve Attack", html: "For each advantage-symbol result, you may spend matching advantage to convert it to a success. Each success deals 1 damage to the target. If an attack hits multiple targets, each single damage is applied to each target." },
               { n: "4", title: "Gain Advantage", html: "For each advantage symbol <em>not</em> converted, gain 1 matching advantage token." },
             ] },
@@ -281,7 +281,7 @@ Rulebooks.register({
           blocks: [
             { t: "p", html: "During the enemy turn, players take turns (in any order) resolving enemy attacks. Unless specified, enemies attack the commando whose play area they're in, regardless of range. Each enemy attack is fully resolved before the next." },
             { t: "steps", items: [
-              { n: "1", title: "Gather &amp; Roll Enemy Dice", html: "The attacked commando gathers 1 enemy die per enemy card in their play area (or more from effects) and rolls." },
+              { n: "1", title: "Gather & Roll Enemy Dice", html: "The attacked commando gathers 1 enemy die per enemy card in their play area (or more from effects) and rolls." },
               { n: "2", title: "Resolve Specials", html: "For each <strong>special</strong> result, resolve the special ability on the leftmost enemy card that hasn't triggered yet this attack (each enemy triggers at most once per attack). Each is its own fully-resolved effect. For each special that cannot be resolved, the attacked commando draws 1 enemy card." },
               { n: "3", title: "Resolve Incoming Damage", html: "Suffer the remaining damage results as a single effect. Spend advantage to prevent it; if you can't prevent all of it, lose a medal. Regardless of how much unprevented damage remains, you cannot lose more than <strong>1 medal per damage effect</strong>." },
             ] },
@@ -363,7 +363,7 @@ Rulebooks.register({
             { t: "note", variant: "warn", title: "Max 3 of each", text: "You can never possess more than <strong>3 of each type</strong> of advantage token; discard the excess. This limit is only for tokens — there's no limit to cards in hand regardless of their advantage symbols." },
             { t: "h", text: "Spending advantage" },
             { t: "p", html: "Spend any matching advantage from your current advantage to pay costs. A spent token returns to the supply. A card spent for its advantage symbol is discarded without resolving its effects. If you \"must\" spend advantage, you cannot avoid the cost unless offered an alternate choice (such as suffering a consequence), in which case you may choose to suffer the consequence instead." },
-            { t: "h", text: "Advantage in attacks &amp; damage" },
+            { t: "h", text: "Advantage in attacks & damage" },
             { t: "p", html: "In a commando attack you may spend advantage to convert an advantage result on a commando die into a success. When you suffer damage (always of an advantage type), you must spend matching advantage to prevent it or lose a medal." },
           ],
         },
@@ -410,9 +410,9 @@ Rulebooks.register({
           summary: "Multi-card enemies you must destroy.",
           blocks: [
             { t: "p", html: "Boss cards are a unique enemy card type. Each enemy deck usually has several numbered 1–4; the number refers to the player count and has no effect beyond setup. Bosses can only move or be moved by effects on boss cards." },
-            { t: "h", text: "Targeting &amp; damaging" },
+            { t: "h", text: "Targeting & damaging" },
             { t: "p", html: "Each boss card corresponds to the boss miniature. When the boss is attacked, the attacking commando may divide and assign the damage among any number of undefeated boss cards. Even with multiple cards in play, the boss counts as a single target." },
-            { t: "h", text: "Defeating &amp; destroying" },
+            { t: "h", text: "Defeating & destroying" },
             { t: "p", html: "When a boss card is defeated it is flipped to its \"Defeated\" side and the commando who defeated it draws 1 card. Some Defeated sides have constant abilities that last the rest of the game. Defeated boss cards cannot be flipped back, assigned damage, or leave play. The boss is <strong>destroyed</strong> only when all boss cards are \"Defeated\" side up." },
             { t: "note", variant: "note", title: "Always an enemy", text: "Boss cards are always an enemy in your play area, defeated or not — they always contribute at least 1 enemy die and count toward your 3-card limit (leaving room for 2 other enemies)." },
           ],

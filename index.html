@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#1b2a1f" />
+  <meta name="description" content="Mobile-friendly board game rules reference." />
+  <title>Rulebooks</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="topbar" id="topbar">
+    <button class="topbar__menu" id="menuBtn" aria-label="Open navigation" aria-expanded="false" hidden>
+      <span></span><span></span><span></span>
+    </button>
+    <a class="topbar__brand" href="#/" id="brandLink">
+      <span class="topbar__logo">▚</span>
+      <span class="topbar__title" id="brandTitle">Rulebooks</span>
+    </a>
+    <div class="topbar__spacer"></div>
+    <button class="topbar__search-btn" id="searchBtn" aria-label="Search rules" hidden>⌕</button>
+  </header>
+
+  <div class="layout">
+    <aside class="sidebar" id="sidebar" aria-label="Table of contents">
+      <div class="sidebar__search">
+        <input type="search" id="navSearch" placeholder="Jump to a rule…" autocomplete="off" aria-label="Search rules" />
+      </div>
+      <nav class="toc" id="toc" aria-label="Sections"></nav>
+    </aside>
+
+    <div class="scrim" id="scrim" hidden></div>
+
+    <main class="main" id="main">
+      <div class="content" id="content"></div>
+    </main>
+  </div>
+
+  <script src="assets/js/games/registry.js"></script>
+  <script src="assets/js/games/contra.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

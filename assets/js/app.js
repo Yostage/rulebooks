@@ -16,14 +16,30 @@
     main: document.getElementById("main"),
   };
 
+  var ACTIVE_GAME = null;
+
   /* ---------- helpers ---------- */
+
+  // Replace inline glyph tokens like :mobility: with <img> for the active game.
+  function glyphify(html) {
+    if (!html || !ACTIVE_GAME || !ACTIVE_GAME.glyphs) return html;
+    var g = ACTIVE_GAME;
+    return html.replace(/:([a-z][a-z0-9-]*):/g, function (m, name) {
+      if (!g.glyphs[name]) return m;
+      return '<img class="glyph" alt="' + name + '" src="' + (g.imgBase || "") + g.glyphs[name] + '" />';
+    });
+  }
+
+  function imgSrc(file) {
+    return (ACTIVE_GAME && ACTIVE_GAME.imgBase ? ACTIVE_GAME.imgBase : "") + file;
+  }
 
   function h(tag, attrs, children) {
     var node = document.createElement(tag);
     if (attrs) {
       Object.keys(attrs).forEach(function (k) {
         if (k === "class") node.className = attrs[k];
-        else if (k === "html") node.innerHTML = attrs[k];
+        else if (k === "html") node.innerHTML = glyphify(attrs[k]);
         else if (k === "text") node.textContent = attrs[k];
         else node.setAttribute(k, attrs[k]);
       });
@@ -45,8 +61,18 @@
     return out;
   }
 
-  function setTheme(accent) {
-    document.documentElement.style.setProperty("--accent", accent || "#7cb342");
+  var THEME_VARS = ["--accent", "--accent-ink", "--accent-soft", "--bg-tint"];
+  function setTheme(game) {
+    var root = document.documentElement;
+    // clear any prior per-game overrides
+    THEME_VARS.forEach(function (v) { root.style.removeProperty(v); });
+    var accent = (game && game.accent) || "#7cb342";
+    root.style.setProperty("--accent", accent);
+    if (game && game.theme) {
+      Object.keys(game.theme).forEach(function (k) {
+        root.style.setProperty(k, game.theme[k]);
+      });
+    }
   }
 
   /* ---------- block renderers ---------- */
@@ -71,6 +97,19 @@
         wrap.appendChild(h("div", { class: "blk-dl__row" }, [
           h("div", { class: "blk-dl__term", html: i.term }),
           h("div", { class: "blk-dl__def", html: i.def }),
+        ]));
+      });
+      return wrap;
+    },
+    icons: function (b) {
+      var wrap = h("div", { class: "blk-icons" });
+      b.items.forEach(function (i) {
+        wrap.appendChild(h("div", { class: "icon-card" }, [
+          h("img", { class: "icon-card__img", src: imgSrc(i.img), alt: i.term || "", loading: "lazy" }),
+          h("div", { class: "icon-card__text" }, [
+            i.term ? h("div", { class: "icon-card__term", html: i.term }) : null,
+            i.def ? h("div", { class: "icon-card__def", html: i.def }) : null,
+          ]),
         ]));
       });
       return wrap;
@@ -157,7 +196,8 @@
   /* ---------- views ---------- */
 
   function showHome() {
-    setTheme("#7cb342");
+    ACTIVE_GAME = null;
+    setTheme(null);
     el.brandTitle.textContent = "Rulebooks";
     el.menuBtn.hidden = true;
     el.searchBtn.hidden = true;
@@ -214,7 +254,8 @@
 
   function showGame(game, sectionId) {
     if (!game) return showHome();
-    setTheme(game.accent);
+    ACTIVE_GAME = game;
+    setTheme(game);
     el.brandTitle.textContent = game.title;
     el.menuBtn.hidden = false;
     el.searchBtn.hidden = false;

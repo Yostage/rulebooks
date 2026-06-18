@@ -9,6 +9,18 @@ Rulebooks.register({
   fullTitle: "Contra: The Board Game",
   tagline: "Cooperative commando action for 1–4 players",
   accent: "#7cb342",
+  theme: { "--accent-ink": "#3a5a16" },
+  imgBase: "assets/img/contra/",
+  glyphs: {
+    mobility: "type-mobility.png",
+    accuracy: "type-accuracy.png",
+    subtlety: "type-subtlety.png",
+    any: "type-any.png",
+    success: "cdie-success.png",
+    critical: "cdie-critical.png",
+    special: "edie-special.png",
+    pillbox: "pillbox.png",
+  },
   cover: "▚",
   meta: [
     { label: "Players", value: "1–4" },
@@ -209,7 +221,7 @@ Rulebooks.register({
             { t: "dl", items: [
               { term: "Ledge Spaces", def: "Spaces within a red outline; they represent changes in elevation. You can only cross a red line into a ledge space by jumping. Within a grouping of ledges you only need to jump when increasing elevation — you may run within the group and when decreasing elevation." },
               { term: "Objective Spaces", def: "Once on your turn, when you move into an objective space you may interrupt your turn to resolve it." },
-              { term: "Pillbox Sensor Spaces", def: "When you move (or are moved) into a pillbox sensor space containing a token, you may discard that token to draw 1 weapon card." },
+              { term: "Pillbox Sensor Spaces :pillbox:", def: "When you move (or are moved) into a pillbox sensor space containing a token, you may discard that token to draw 1 weapon card." },
               { term: "Stage-Specific Spaces", def: "Some stages have unique spaces, described on their stage cards." },
               { term: "Enemy & Boss Spaces", def: "No effect when commandos enter, but enemies and bosses enter play here." },
             ] },
@@ -228,8 +240,8 @@ Rulebooks.register({
               { n: "3", title: "Resolve Attack", html: "For each advantage-symbol result, you may spend matching advantage to convert it to a success. Each success deals 1 damage to the target. If an attack hits multiple targets, each single damage is applied to each target." },
               { n: "4", title: "Gain Advantage", html: "For each advantage symbol <em>not</em> converted, gain 1 matching advantage token." },
             ] },
-            { t: "example", title: "Example 1 — Lance", text: "Lance plays \"Engage\" and targets an enemy within 1 space, granting +1 die. His rifle gives 2 dice, so he rolls 3. He rolls 2 successes and 1 critical. The critical explodes, adding a die that's also a critical, which explodes again into a success. Total: 5 successes (the 3 base + 2 from the criticals). Lance deals 5 damage." },
-            { t: "example", title: "Example 2 — Lucia", text: "Lucia's \"Shockwave Pulse\" card specifies its own range and attack pool, so she doesn't use her current weapon (and gets no weapon special ability). She rolls 2 successes and 1 advantage result, chooses not to convert it, and deals 2 damage to each target. She then gains 1 advantage token." },
+            { t: "example", title: "Example 1 — Lance", text: "Lance plays \"Engage\" and targets an enemy within 1 space, granting +1 die. His rifle gives 2 dice, so he rolls 3. He rolls 2 success :success: and 1 critical :critical:. The critical explodes, adding a die that's also a critical :critical:, which explodes again into a success :success:. Total: 5 successes (the 3 base + 2 from the criticals). Lance deals 5 damage." },
+            { t: "example", title: "Example 2 — Lucia", text: "Lucia's \"Shockwave Pulse\" card specifies its own range and attack pool, so she doesn't use her current weapon (and gets no weapon special ability). She rolls 2 success :success: and 1 advantage result, chooses not to convert it, and deals 2 damage to each target. She then gains 1 advantage token." },
           ],
         },
         {
@@ -249,10 +261,16 @@ Rulebooks.register({
           title: "Commando Dice Results",
           summary: "Success, critical, and advantage faces.",
           blocks: [
-            { t: "dl", items: [
-              { term: "Success", def: "Each success deals 1 damage during a commando attack." },
-              { term: "Critical", def: "Treated like a success and \"explodes,\" immediately adding 1 die to the roll." },
-              { term: "Advantage Results", def: "Can be converted into successes by spending the matching advantage. Any advantage symbols not converted let you gain 1 advantage of that type." },
+            { t: "icons", items: [
+              { img: "cdie-success.png", term: "Success", def: "Each success deals 1 damage during a commando attack." },
+              { img: "cdie-critical.png", term: "Critical", def: "Treated like a success and \"explodes,\" immediately adding 1 die to the roll." },
+            ] },
+            { t: "h", text: "Advantage results" },
+            { t: "p", html: "Each of these can be converted into a success by spending the matching advantage. Any advantage symbols you don't convert let you gain 1 advantage of that type instead." },
+            { t: "icons", items: [
+              { img: "cdie-mobility.png", term: "Mobility", def: "Convert by spending Mobility, or gain 1 Mobility." },
+              { img: "cdie-accuracy.png", term: "Accuracy", def: "Convert by spending Accuracy, or gain 1 Accuracy." },
+              { img: "cdie-subtlety.png", term: "Subtlety", def: "Convert by spending Subtlety, or gain 1 Subtlety." },
             ] },
           ],
         },
@@ -277,9 +295,15 @@ Rulebooks.register({
           title: "Enemy Dice Results",
           summary: "Damage and special faces.",
           blocks: [
-            { t: "dl", items: [
-              { term: "Enemy Damage", def: "Each makes the attacked commando suffer the corresponding type of damage." },
-              { term: "Enemy Special", def: "Each triggers an enemy's special ability and may spawn additional enemies." },
+            { t: "p", html: "<strong>Enemy damage</strong> — each result makes the attacked commando suffer the corresponding type of damage:" },
+            { t: "icons", items: [
+              { img: "edie-mobility.png", term: "Mobility damage", def: "Prevent by spending Mobility." },
+              { img: "edie-accuracy.png", term: "Accuracy damage", def: "Prevent by spending Accuracy." },
+              { img: "edie-subtlety.png", term: "Subtlety damage", def: "Prevent by spending Subtlety." },
+            ] },
+            { t: "h", text: "Enemy special" },
+            { t: "icons", items: [
+              { img: "edie-special.png", term: "Special", def: "Triggers an enemy's special ability (resolved on the leftmost untriggered enemy card) and may spawn additional enemies." },
             ] },
           ],
         },
@@ -326,12 +350,12 @@ Rulebooks.register({
           title: "Advantage",
           summary: "The currency of skill and survival.",
           blocks: [
-            { t: "p", html: "Advantage represents a commando's skills. It is tracked with advantage tokens and the advantage symbols on commando cards." },
-            { t: "dl", items: [
-              { term: "Mobility", def: "Evasiveness and agility." },
-              { term: "Accuracy", def: "Skill with firearms." },
-              { term: "Subtlety", def: "Skill at stealth and close combat." },
-              { term: "Any", def: "Represents any advantage type (the commando's choice)." },
+            { t: "p", html: "Advantage represents a commando's skills. It is tracked with advantage tokens and the advantage symbols on commando cards. The advantage types are:" },
+            { t: "icons", items: [
+              { img: "type-mobility.png", term: "Mobility", def: "Evasiveness and agility." },
+              { img: "type-accuracy.png", term: "Accuracy", def: "Skill with firearms." },
+              { img: "type-subtlety.png", term: "Subtlety", def: "Skill at stealth and close combat." },
+              { img: "type-any.png", term: "Any", def: "Represents any advantage type (the commando's choice)." },
             ] },
             { t: "h", text: "Current advantage" },
             { t: "p", html: "Your current advantage is your advantage tokens plus the advantage symbols on the commando cards in your hand. When asked how much advantage you have, check your current advantage." },

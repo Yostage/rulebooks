@@ -55,7 +55,7 @@ Rulebooks.register({
           blocks: [
             { t: "p", html: "<strong>Contra: The Board Game</strong> is a cooperative board game for 1–4 players based on the acclaimed Contra video game series. Each player takes on the role of a commando, defending Earth from alien invaders and the evil machinations of the Red Falcon Army." },
             { t: "p", html: "Each game consists of a <strong>stage</strong> that the players traverse, completing objectives while confronting a dangerous <strong>boss</strong>." },
-            { t: "note", variant: "tip", title: "Win &amp; Lose", text: "The players <strong>lose</strong> if any commando must discard a medal token and cannot. The players <strong>win</strong> by destroying the boss." },
+            { t: "note", variant: "tip", title: "Win & Lose", text: "The players <strong>lose</strong> if any commando must discard a medal token and cannot. The players <strong>win</strong> by destroying the boss." },
           ],
         },
         {
@@ -225,7 +225,7 @@ Rulebooks.register({
               { term: "Stage-Specific Spaces", def: "Some stages have unique spaces, described on their stage cards." },
               { term: "Enemy & Boss Spaces", def: "No effect when commandos enter, but enemies and bosses enter play here." },
             ] },
-            { t: "note", variant: "note", title: "Enemies &amp; special spaces", text: "Enemies <strong>ignore</strong> special spaces when moving, unless specified otherwise." },
+            { t: "note", variant: "note", title: "Enemies & special spaces", text: "Enemies <strong>ignore</strong> special spaces when moving, unless specified otherwise." },
           ],
         },
         {
@@ -548,19 +548,19 @@ Rulebooks.register({
             { t: "ol", items: [
               "<strong>Commando Turns</strong> — each player takes a turn.",
               "<strong>Enemy Turn</strong> — each player resolves an enemy attack.",
-              "<strong>Stage Turn</strong> — Activate stage cards, then draw &amp; resolve 1 stage card.",
+              "<strong>Stage Turn</strong> — Activate stage cards, then draw & resolve 1 stage card.",
             ] },
             { t: "p", html: "Then flip turn cards and each draw an enemy. Repeat until the game ends." },
             { t: "h", text: "Commando attack" },
             { t: "ol", items: [
               "Choose a target in range.",
-              "Gather &amp; roll dice; resolve criticals (explode).",
+              "Gather & roll dice; resolve criticals (explode).",
               "Resolve attack — convert advantage results, deal 1 damage per success.",
               "Gain advantage for unconverted advantage results.",
             ] },
             { t: "h", text: "Enemy attack" },
             { t: "ol", items: [
-              "Gather &amp; roll 1 enemy die per enemy card.",
+              "Gather & roll 1 enemy die per enemy card.",
               "Resolve specials (leftmost untriggered card first).",
               "Resolve incoming damage — prevent with advantage or lose a medal (max 1 per effect).",
             ] },

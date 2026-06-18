@@ -79,7 +79,7 @@
 
   var blockRenderers = {
     p: function (b) { return h("p", { class: "blk-p", html: b.html }); },
-    h: function (b) { return h("h3", { class: "blk-h", text: b.text }); },
+    h: function (b) { return h("h3", { class: "blk-h", html: b.text }); },
     divider: function () { return h("hr", { class: "blk-divider" }); },
     ul: function (b) {
       return h("ul", { class: "blk-list" }, b.items.map(function (i) {
@@ -120,7 +120,7 @@
         wrap.appendChild(h("li", { class: "blk-steps__item" }, [
           h("span", { class: "blk-steps__num", text: i.n }),
           h("div", { class: "blk-steps__body" }, [
-            h("div", { class: "blk-steps__title", text: i.title }),
+            h("div", { class: "blk-steps__title", html: i.title }),
             h("div", { class: "blk-steps__text", html: i.html }),
           ]),
         ]));

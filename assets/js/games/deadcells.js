@@ -28,6 +28,13 @@ Rulebooks.register({
     frozen: "state-frozen.png",
     "on-fire": "state-on-fire.png",
     marked: "state-marked.png",
+    damage: "act-damage.png",
+    block: "act-block.png",
+    skill: "act-skill.png",
+    loot: "act-loot.png",
+    survival: "ability-survival.png",
+    tactics: "ability-tactics.png",
+    brutality: "ability-brutality.png",
   },
   meta: [
     { label: "Players", value: "1–4" },
@@ -169,7 +176,13 @@ Rulebooks.register({
               { term: "Active Space", def: "Where you play your Active card during Combat." },
             ] },
             { t: "h", text: "The Scroll Tracks" },
-            { t: "p", html: "The three Scroll Tracks are <strong>Survival</strong>, <strong>Tactics</strong>, and <strong>Brutality</strong>. Each time you earn a Scroll, slide that colour's marker one space right to unlock a new skill or ability." },
+            { t: "p", html: "The three Scroll Tracks each have their own colour and symbol:" },
+            { t: "icons", items: [
+              { img: "ability-survival.png", term: "Survival", def: "Green — Health and staying power." },
+              { img: "ability-tactics.png", term: "Tactics", def: "Purple — ranged and clever play." },
+              { img: "ability-brutality.png", term: "Brutality", def: "Red — raw melee damage." },
+            ] },
+            { t: "p", html: "Each time you earn a Scroll, slide that colour's marker one space right to unlock a new skill or ability." },
             { t: "note", variant: "tip", title: "Cumulative", text: "Everything to the <strong>left</strong> of a Scroll marker is an active ability, and these stack. When a Health boost unlocks, remember to also move your Max Health marker." },
           ],
         },
@@ -243,7 +256,7 @@ Rulebooks.register({
           title: "Checks",
           summary: "Testing your Survival, Brutality, or Tactics.",
           blocks: [
-            { t: "p", html: "A Check puts your Survival, Brutality, or Tactics skills to the test. Passing can open a route or grant bonuses; failing can block progress or deal damage. There are two types:" },
+            { t: "p", html: "A Check puts your Survival :survival:, Brutality :brutality:, or Tactics :tactics: skills to the test. Passing can open a route or grant bonuses; failing can block progress or deal damage. There are two types:" },
             { t: "h", text: "Hand Checks" },
             { t: "p", html: "If the First Player can discard a Combat card from their hand with the required symbol, the Group passes. If it was a corridor Check, you may move through. If they lack a matching card, the Group fails (and can't take that corridor)." },
             { t: "h", text: "Deck Checks" },
@@ -344,6 +357,12 @@ Rulebooks.register({
           title: "Combat Actions",
           summary: "Damage, Block, Skill, Loot.",
           blocks: [
+            { t: "icons", items: [
+              { img: "act-damage.png", term: "Damage", def: "Deal Damage to an Enemy, or (for Enemies) to a Beheaded." },
+              { img: "act-block.png", term: "Block", def: "Place a Shield token; discard it to cancel one Damage." },
+              { img: "act-skill.png", term: "Skill", def: "Activate a Skill on your board or Equipment (Beheaded only)." },
+              { img: "act-loot.png", term: "Loot", def: "Take one type of item from the Group space (Beheaded only)." },
+            ] },
             { t: "h", text: "Damage" },
             { t: "dl", items: [
               { term: "Beheaded", def: "Assign 1 Damage token to a targeted Enemy. When Damage equals or exceeds the Enemy's Health, it's killed." },

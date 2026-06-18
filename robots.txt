@@ -1,0 +1,35 @@
+# This site reproduces board game rules for personal reference only.
+# Please do not index, crawl, cache, or use this content for training.
+#
+# NOTE: For a GitHub Pages *project* site (served under /rulebooks/), crawlers
+# only honor robots.txt at the domain root (https://yostage.github.io/robots.txt),
+# not this path. The authoritative control here is the per-page
+# <meta name="robots" content="noindex,nofollow"> tag in index.html.
+
+User-agent: *
+Disallow: /
+
+# AI / LLM crawlers (explicit, for the ones that only honor named entries)
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: PerplexityBot
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
+User-agent: Amazonbot
+Disallow: /

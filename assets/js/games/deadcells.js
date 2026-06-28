@@ -139,9 +139,8 @@ Rulebooks.register({
           blocks: [
             { t: "dl", items: [
               { term: "Equipment deck", def: "A constant presence throughout your campaign that grows, improves, and changes as you add Blueprint cards to it." },
-              { term: "Blueprints", def: "Plans for new Equipment. The group carries them until the end of the Biome, where (with the Collector's help) they're turned into real Equipment. Die before the Biome ends and you lose the plan before realizing it." },
+              { term: "Blueprints", def: "Plans for new Equipment, kept in Biome-specific decks (coded B1, B2, …). The group carries them until the end of the Biome, where (with the Collector's help) they're turned into real Equipment; die before then and you lose the plan. A Blueprint added to your Equipment deck immediately becomes an Equipment card and is no longer a Blueprint." },
             ] },
-            { t: "note", variant: "note", title: "Blueprint decks are Biome-specific", text: "Blueprint decks are coded by Biome (B1, B2, …). A Blueprint added to your Equipment deck immediately becomes an Equipment card and is no longer a Blueprint. If you must draw a Blueprint and the deck is empty, nothing happens." },
           ],
         },
         {
@@ -325,11 +324,10 @@ Rulebooks.register({
           blocks: [
             { t: "p", html: "Regardless of player count, a total of <strong>3 Combat cards</strong> are played each time. Starting with the First Player and going clockwise, each player: (1) chooses a card from hand, (2) announces ONE Action on it and which Round it happens in, and (3) places it face-down on their Active Space. Then all cards are revealed." },
             { t: "dl", items: [
-              { term: "2-player", def: "First Player plays 2 cards, the other plays 1. Effects on the First Player apply only to their first-played card; at end of Combat the first card is discarded, then the second on top." },
+              { term: "2-player", def: "First Player plays 2 cards (resolved in the order they choose at the start of Combat), the other plays 1. Anything that affects the First Player — including a Freeze or a forced discard — applies only to their first-played card; at end of Combat the first card is discarded, then the second on top." },
               { term: "3-player", def: "All players play 1 card." },
               { term: "4-player", def: "Only 3 cards may be played; players decide who passes. The First Player must take part and cannot pass." },
             ] },
-            { t: "note", variant: "note", title: "First Player's two cards (2-player)", text: "The First Player resolves their two cards in the order they chose at the start of Combat, and discards them in that order. Anything that hits the First Player — a Freeze token, or a forced discard — affects their <strong>first-played</strong> card." },
             { t: "p", html: "Possible Actions: <strong>Do Damage, Block, Loot, Perform a Skill, Assign a State, Heal</strong>." },
             { t: "h", text: "The Passing Player" },
             { t: "p", html: "On their turn, the passing player reveals the top card of their Combat deck instead of playing. If it has a Scroll symbol, advance that Scroll 1 space (choose, if two symbols); the card is discarded either way. They may then discard any hand cards and re-draw. A passing player takes no part in Combat: no Damage, no States, no Loot." },
@@ -397,13 +395,12 @@ Rulebooks.register({
             { t: "p", html: "States work the same for Beheaded and Enemies — place a token of the appropriate type on the card or board." },
             { t: "icons", items: [
               { img: "state-poisoned.png", term: "Poisoned", def: "Apply 1 Damage per Poisoned token during the Round End Phase of every Combat Round." },
-              { img: "state-bleeding.png", term: "Bleeding", def: "Any character still Bleeding after Combat Round III dies." },
+              { img: "state-bleeding.png", term: "Bleeding", def: "Any character still Bleeding after Combat Round III dies — it can be removed before then by the Death Bonus of the enemy that inflicted it." },
               { img: "state-on-fire.png", term: "On Fire", def: "The first On Fire token has no effect; a second On Fire token kills the character immediately." },
               { img: "state-frozen.png", term: "Frozen", def: "Placed on the character's next Combat line that has an Action; all that round's Actions are skipped by the Frozen character." },
-              { img: "state-marked.png", term: "Marked", def: "A Marked character suffers +1 to any Damage they receive for the rest of Combat, per token." },
+              { img: "state-marked.png", term: "Marked", def: "+1 Damage each time a Damage token is placed on them — so blocked Damage gives no bonus (and if the Damage is Unblockable, the +1 is too). Stacks per token." },
             ] },
             { t: "note", variant: "note", title: "Immunity", text: "An Immune character simply doesn't get the token, so it has no effect. You can deliberately 'assign' a State to an Immune Beheaded to cancel that State's effect." },
-            { t: "note", variant: "note", title: "Marked & Bleeding details", text: "<strong>Marked</strong> adds its +1 only when a Damage token is actually placed — if the Damage is blocked, no bonus applies (and if the Damage is Unblockable, the +1 is too). Marked tokens stack. <strong>Bleeding</strong> can be removed before it kills: enemies that inflict Bleeding have a Death Bonus that removes it." },
           ],
         },
         {
@@ -449,10 +446,9 @@ Rulebooks.register({
             { t: "ul", items: [
               "Assign looted Scrolls and Equipment to Beheaded who fought; looted Blueprints go to the Collector space. Passing players get no Loot.",
               "Discard un-killed Monsters and un-looted Loot (unlooted Blueprints go to the bottom of the Blueprint deck).",
-              "Discard all Shields and State tokens, and your Active card.",
+              "Discard all Shields and State tokens (Damage is <strong>not</strong> healed), and your Active card.",
               "Draw back up to 3 Combat cards (shuffle discard into deck if needed).",
             ] },
-            { t: "note", variant: "note", title: "No free healing", text: "Only Shields and States are removed at the end of Combat — Beheaded do <strong>not</strong> heal their Damage between Combats." },
           ],
         },
         {

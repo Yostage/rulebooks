@@ -412,13 +412,13 @@ Rulebooks.register({
           summary: "Timed, Always Active, Skill, Companions.",
           blocks: [
             { t: "dl", items: [
-              { term: "Timed — Choose (/)", def: "Used in the indicated round instead of the Action on your Combat card." },
-              { term: "Timed — More (+)", def: "Used in the indicated round; if your Combat card has an Action there, it adds to it." },
+              { term: "Timed — Choose (/)", def: "Used in the indicated round in place of your Combat card's Action there — even if you played no Action in that round." },
+              { term: "Timed — More (+)", def: "Used in the indicated round; adds to your Combat card's Action there, or applies on its own if you played no Action in that round." },
               { term: "Always Active", def: "Triggers automatically during Combat, as many times as it is triggered." },
               { term: "Skill", def: "Activated with a Skill Action; usable only as many times as you have Skill actions." },
             ] },
             { t: "note", variant: "note", title: "Timed limit", text: "Only 1 Timed Equipment card per Combat card per round, and you can't use the same Timed Equipment twice in one round. (In a 2-player game you may use 2 different Timed Equipment in one round, as long as they're on different Combat cards.)" },
-            { t: "note", variant: "note", title: "Empty actions & scaling", text: "A <strong>/</strong> (replace) Equipment may be used even when it would replace an empty action, and a <strong>+</strong> Equipment may be used even if you played an empty action. Equipment that scales with a Scroll track uses your current <strong>Level</strong> on that track (the number just below your Scroll marker)." },
+            { t: "note", variant: "note", title: "Scaling with a Scroll track", text: "Equipment that scales with a Scroll track uses your current <strong>Level</strong> on that track (the number just below your Scroll marker)." },
             { t: "h", text: "Companions" },
             { t: "ul", items: [
               "Equipped like Equipment (they need an available slot).",

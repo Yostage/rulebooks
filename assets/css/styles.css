@@ -471,6 +471,11 @@ body.drawer-open .sidebar { transform: translateX(0); }
 .pager__dir { font-size: 12px; color: var(--accent); font-weight: 600; }
 .pager__name { font-weight: 600; font-size: 14.5px; }
 
+/* compact top pager: slim single-row buttons for quick flipping */
+.pager--top { margin-top: 4px; margin-bottom: 24px; padding-top: 0; border-top: none; }
+.pager--top .pager__btn { flex-direction: row; align-items: center; padding: 8px 14px; }
+.pager--top .pager__name { display: none; }
+
 /* ===== Desktop ===== */
 @media (min-width: 960px) {
   .topbar__menu { display: none; }

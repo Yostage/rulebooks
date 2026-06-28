@@ -235,6 +235,22 @@
     window.scrollTo(0, 0);
   }
 
+  // Plain-text keywords for a section: its title/summary plus the text of
+  // every block (so a search for "trapper" finds the page it's discussed on).
+  function sectionSearchText(s) {
+    var parts = [s.title, s.summary || ""];
+    function push(v) { if (typeof v === "string") parts.push(v.replace(/<[^>]*>/g, " ")); }
+    (s.blocks || []).forEach(function (b) {
+      push(b.html); push(b.text); push(b.title); push(b.def);
+      (b.items || []).forEach(function (it) {
+        if (typeof it === "string") return push(it);
+        push(it.html); push(it.text); push(it.title); push(it.def);
+        push(it.term); push(it.q); push(it.a);
+      });
+    });
+    return parts.join(" ").replace(/\s+/g, " ").toLowerCase();
+  }
+
   function buildToc(game, activeSectionId) {
     el.toc.innerHTML = "";
     game.chapters.forEach(function (ch) {
@@ -244,7 +260,7 @@
         var link = h("a", {
           class: "toc__link" + (s.id === activeSectionId ? " is-active" : ""),
           href: "#/" + game.id + "/" + s.id,
-          "data-search": (s.title + " " + (s.summary || "")).toLowerCase(),
+          "data-search": (ch.title + " " + sectionSearchText(s)),
         }, [document.createTextNode(s.title)]);
         group.appendChild(link);
       });
@@ -333,12 +349,20 @@
     wrap.appendChild(h("h1", { class: "section__title", text: s.title }));
     if (s.summary) wrap.appendChild(h("p", { class: "section__summary", text: s.summary }));
 
+    // compact prev / next at the top for quick flipping (esp. mobile)
+    wrap.appendChild(buildPager(game, flat, idx, "pager--top"));
+
     var body = h("div", { class: "section__body" });
     body.appendChild(renderBlocks(s.blocks || []));
     wrap.appendChild(body);
 
-    // prev / next
-    var nav = h("div", { class: "pager" });
+    // full prev / next at the bottom
+    wrap.appendChild(buildPager(game, flat, idx));
+    return wrap;
+  }
+
+  function buildPager(game, flat, idx, extraClass) {
+    var nav = h("div", { class: "pager" + (extraClass ? " " + extraClass : "") });
     if (idx > 0) {
       var p = flat[idx - 1].section;
       nav.appendChild(h("a", { class: "pager__btn pager__btn--prev", href: "#/" + game.id + "/" + p.id }, [
@@ -355,8 +379,7 @@
         h("span", { class: "pager__name", text: n.title }),
       ]));
     }
-    wrap.appendChild(nav);
-    return wrap;
+    return nav;
   }
 
   /* ---------- search / filter ---------- */

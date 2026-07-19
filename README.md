@@ -7,6 +7,9 @@ The top-level page is a **game picker**; each game opens a clean, browsable rule
 ## Games
 
 - **Contra: The Board Game** — full rules reference (source: Contra Rulebook v2, Blacklist Games / Konami).
+- **Dead Cells: The Rogue-Lite Board Game** — rules + official FAQ (Le Scorpion Masqué / Motion Twin).
+- **Wroth** — rules + official clarifications (Chip Theory Games).
+- **Defenders of the Wild** — full rules reference (source: Rulebook v1.0, Outlandish Games).
 
 ## Running locally
 

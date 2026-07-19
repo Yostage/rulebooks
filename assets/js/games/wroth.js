@@ -319,7 +319,7 @@ Rulebooks.register({
       title: "The Game Round",
       sections: [
         {
-          id: "overview",
+          id: "round-overview",
           title: "Round & Turn Overview",
           summary: "The six phases, and what a turn looks like.",
           blocks: [

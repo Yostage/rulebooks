@@ -1,0 +1,20 @@
+{
+  "paper_sample": { "page": 17, "at": [200, 210] },
+  "crops": [
+    { "page": 17, "rect": [30, 50, 78, 98], "name": "bread", "dpi": 300, "tol": 26, "minspeck": 200 },
+    { "page": 17, "rect": [30, 104, 76, 150], "name": "potions", "dpi": 300, "tol": 26, "minspeck": 200 },
+    { "page": 17, "rect": [272, 50, 325, 100], "name": "rockets", "dpi": 300, "tol": 26, "minspeck": 200 },
+    { "page": 17, "rect": [272, 112, 325, 162], "name": "maps", "dpi": 300, "tol": 26, "minspeck": 200 },
+    { "page": 12, "rect": [289.7, 298.4, 313.7, 322.2], "name": "dmg-1", "dpi": 450, "tol": 40, "minspeck": 200 },
+    { "page": 12, "rect": [341.1, 298.4, 363.9, 320.9], "name": "dmg-2", "dpi": 450, "tol": 40, "minspeck": 200 },
+    { "page": 12, "rect": [392.2, 298.4, 416.2, 322.2], "name": "dmg-0", "dpi": 450, "tol": 40, "minspeck": 200 },
+    { "page": 12, "rect": [472.5, 301.5, 501, 324.5], "name": "damage-token", "dpi": 300, "tol": 26, "minspeck": 200 },
+    { "page": 12, "rect": [481, 470, 518, 509], "name": "toxic-site", "dpi": 300, "tol": 26, "minspeck": 200 },
+    { "page": 12, "rect": [280, 148, 333.5, 211], "name": "sniper-hex", "dpi": 300, "tol": 26, "minspeck": 1500 },
+    { "page": 12, "rect": [395, 148, 448.5, 211], "name": "hunter-hex", "dpi": 300, "tol": 26, "minspeck": 1500 },
+    { "page": 17, "rect": [458, 254.5, 469, 265], "name": "dir-right", "dpi": 600, "tol": 40, "minspeck": 100 },
+    { "page": 17, "rect": [282.7, 264.7, 289.6, 276.7], "name": "dir-left", "dpi": 600, "tol": 40, "minspeck": 100 },
+    { "page": 7, "rect": [407, 324, 416, 334], "name": "mech", "dpi": 600, "tol": 40, "minspeck": 100 },
+    { "page": 7, "rect": [478, 337, 487, 346], "name": "pollution", "dpi": 600, "tol": 40, "minspeck": 100 }
+  ]
+}

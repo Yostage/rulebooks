@@ -12,9 +12,15 @@ Mobile-friendly, multi-game board-game rules site. Static, **no build step**, de
 - **Section `title`/`summary` render via `textContent`** (they appear in the TOC/breadcrumbs/`<h1>`).
 - **Ampersands:** convention is a **literal `&`** everywhere (it's safe in `innerHTML` because every one is followed by a space — never an ambiguous `&entity;`). Do NOT write `&amp;`. If you ever need `&` glued to a letter ("R&D"), use `&amp;` there only.
 
+## Ingestion toolchain (use these, don't re-derive)
+- `py tools/extract_text.py <pdf> [out.txt] [--mode blocks]` — per-page text with `=== page N ===` markers. First pass of any ingestion. Detects un-smudged LFS pointers and says how to fix.
+- `py tools/render_pages.py <pdf> <outdir> [--dpi 150]` — render whole pages to PNG (the "naive" image pass; view these to find icons + pick the theme color).
+- `py tools/extract_icons.py <pdf> tools/crops/<game>.json assets/img/<game>` — crop icons at high DPI, key the paper background transparent, despeckle, auto-trim. The per-game crop manifest (page/rect-in-points/dpi/tol/minspeck) documents where every glyph came from and makes extraction reproducible; see `tools/crops/defenders.json`. Find rect coordinates by zoom-rendering candidate regions (`get_pixmap(clip=...)`) and eyeballing; `page.get_image_info()` bboxes help for raster icons but vector icons don't appear there.
+- **Pillow, not pixmap tricks:** PyMuPDF's pixmap-copy constructor corrupts output; do image surgery in Pillow (`Image.frombytes("RGB", ..., pix.samples)`).
+- `node tools/validate.js` — validates ALL games' content model: block types/fields, glyph tokens resolve, image files exist, unique section ids (they're game-wide route keys!), ampersand convention, textContent fields free of HTML, index.html script tags. Run after every content edit; it exits non-zero on errors.
+
 ## Glyphs (icons extracted from the source PDFs)
-- Live in `assets/img/<game>/`. Extracted with **PyMuPDF** (`pip install PyMuPDF`; bundles its own renderer, no poppler needed). Approach: render the page, find the icon's image-fragment bounding box (`page.get_image_info()`), crop the clip-rect at high DPI (`get_pixmap(clip=..., matrix/dpi=..., alpha=True)`). For vector icons or tightly-packed ones, crop by region / pixel-detect color bounds. `tools/render_pages.py` renders whole pages (the "naive" pass).
-- **Contra** glyphs sit on light tiles; **Dead Cells** glyphs are self-contained on dark chips (that's the source art — fine on the light icon cards).
+- Live in `assets/img/<game>/`. **Contra** glyphs sit on light tiles; **Dead Cells** glyphs are self-contained on dark chips (that's the source art — fine on the light icon cards); **Defenders** glyphs are paper-keyed transparent.
 - Inline glyph tokens: write `:name:` in any HTML field; resolved per game via `game.glyphs` (name→file) + `game.imgBase`. Only known names are replaced, so stray `:foo:` is safe.
 
 ## Source PDFs + Git LFS
@@ -22,17 +28,18 @@ Mobile-friendly, multi-game board-game rules site. Static, **no build step**, de
 - **Smudge trap:** after clone / `lfs migrate`, the working copy may be a ~132-byte pointer, not the real PDF (PyMuPDF then errors "no objects found"). Fix: `git lfs checkout source/<file>.pdf` (or `git lfs pull`). Check with `head -c8 file.pdf` → should be `%PDF`.
 
 ## Theming
-- Per-game: `accent` (hex) + optional `theme` object of CSS-var overrides (`--accent-ink`, etc.). A subtle accent wash is applied to body/sidebar via `color-mix` in `styles.css`, so changing `accent` changes the whole feel. Contra = green, Dead Cells = cyan.
+- Per-game: `accent` (hex) + optional `theme` object of CSS-var overrides (`--accent-ink`, etc.). A subtle accent wash is applied to body/sidebar via `color-mix` in `styles.css`, so changing `accent` changes the whole feel. Contra = green, Dead Cells = cyan, Wroth = pink-red, Defenders = autumn rust.
 
 ## Deploy + verify loop
 - Site repo: **`yostage/rulebooks`** (public — required for free Pages), branch `main`, Pages from root. URL: `https://yostage.github.io/rulebooks/`.
-- Workflow: edit → `node -c <file>` syntax check → validate content model in Node (stub `global.window=global`, require the game files) → commit → push → poll build: `gh api repos/Yostage/rulebooks/pages/builds/latest --jq .status` until `built` → verify with `curl`.
+- Workflow: edit → `node tools/validate.js` → commit → push → `bash tools/verify_deploy.sh [needle]` (polls the Pages build until `built`, then curls the live site and greps for the needle, e.g. a new game's script path).
 - **Commit/push only when asked** generally, but this session's norm has been to ship each change; confirm if unsure.
 
 ## Tooling quirks (Windows)
 - The **PowerShell tool wedges** sometimes (returns exit 1 for everything, even trivial commands). Workaround: drive PowerShell from the **Bash tool** via `powershell.exe -NoProfile -Command "..."`.
 - **Screenshots:** `~/.claude/skills/screenshot/scripts/Save-Screenshot.ps1`. `-PrimaryMonitor` is more reliable than `-ProcessName chrome -BringToFront` (focus often grabs the wrong Chrome window). Start a local server with `python -m http.server 8765` and open `http://localhost:8765/#/...`.
 - `gh api` paths: in Git Bash, drop the leading slash or set `MSYS_NO_PATHCONV=1` (else the path gets rewritten to a filesystem path).
+- **Python launcher:** `python` is not on the Bash PATH (Microsoft Store stub) — use `py` (3.14, has PyMuPDF + Pillow).
 
 ## Don't-index / anti-scrape posture (keep it)
 The site reproduces copyrighted rulebook text for reference. In place:

@@ -10,6 +10,7 @@ The top-level page is a **game picker**; each game opens a clean, browsable rule
 - **Dead Cells: The Rogue-Lite Board Game** — rules + official FAQ (Le Scorpion Masqué / Motion Twin).
 - **Wroth** — rules + official clarifications (Chip Theory Games).
 - **Defenders of the Wild** — full rules reference (source: Rulebook v1.0, Outlandish Games).
+- **Star Trek: Captain's Chair** — full rules reference (source: To Boldly Go rulebook, WizKids 2025).
 
 ## Running locally
 

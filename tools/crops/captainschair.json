@@ -1,0 +1,36 @@
+{
+  "paper_sample": { "page": 36, "at": [287, 450] },
+  "crops": [
+    { "page": 36, "rect": [152.7, 368.3, 180.8, 380.3], "name": "ally", "dpi": 600, "tol": 26, "minspeck": 100 },
+    { "page": 36, "rect": [152.7, 380.3, 192.3, 392.3], "name": "captain", "dpi": 600, "tol": 7, "minspeck": 100 },
+    { "page": 36, "rect": [152.7, 392.3, 188.5, 404.3], "name": "cargo", "dpi": 600, "tol": 26, "minspeck": 100 },
+    { "page": 36, "rect": [152.7, 405.2, 196.7, 417.2], "name": "directive", "dpi": 600, "tol": 26, "minspeck": 100 },
+    { "page": 36, "rect": [152.7, 418.0, 203.0, 430.0], "name": "encounter", "dpi": 600, "tol": 26, "minspeck": 100 },
+    { "page": 36, "rect": [152.7, 430.8, 196.1, 442.8], "name": "incident", "dpi": 600, "tol": 26, "minspeck": 100 },
+    { "page": 36, "rect": [152.7, 456.5, 199.7, 468.5], "name": "location", "dpi": 600, "tol": 26, "minspeck": 100 },
+    { "page": 36, "rect": [152.7, 469.3, 192.9, 481.3], "name": "person", "dpi": 600, "tol": 26, "minspeck": 100 },
+    { "page": 36, "rect": [152.7, 482.2, 179.2, 494.2], "name": "ship", "dpi": 600, "tol": 26, "minspeck": 100 },
+
+    { "page": 36, "rect": [174.8, 510.7, 198.0, 533.6], "name": "research", "dpi": 450, "tol": 26, "minspeck": 200 },
+    { "page": 36, "rect": [174.9, 548.7, 197.8, 571.6], "name": "research-focus", "dpi": 450, "tol": 26, "minspeck": 200 },
+    { "page": 36, "rect": [167.2, 582.5, 205.6, 617.4], "name": "research-restriction", "dpi": 450, "tol": 26, "minspeck": 200 },
+    { "page": 36, "rect": [173.0, 630.2, 199.8, 652.6], "name": "research-skill", "dpi": 450, "tol": 26, "minspeck": 200 },
+    { "page": 36, "rect": [237.5, 270.2, 266.1, 291.6], "name": "influence", "dpi": 450, "tol": 26, "minspeck": 200 },
+    { "page": 36, "rect": [240.3, 306.7, 263.3, 329.6], "name": "influence-focus", "dpi": 450, "tol": 26, "minspeck": 200 },
+    { "page": 36, "rect": [232.6, 340.6, 271.0, 375.5], "name": "influence-restriction", "dpi": 450, "tol": 26, "minspeck": 200 },
+    { "page": 36, "rect": [238.4, 388.3, 265.2, 410.6], "name": "influence-skill", "dpi": 450, "tol": 26, "minspeck": 200 },
+    { "page": 36, "rect": [240.0, 423.4, 263.9, 446.3], "name": "military", "dpi": 450, "tol": 26, "minspeck": 200 },
+    { "page": 36, "rect": [240.3, 461.4, 263.3, 484.3], "name": "military-focus", "dpi": 450, "tol": 26, "minspeck": 200 },
+    { "page": 36, "rect": [232.6, 495.2, 271.0, 530.2], "name": "military-restriction", "dpi": 450, "tol": 26, "minspeck": 200 },
+    { "page": 36, "rect": [238.4, 542.9, 265.2, 565.3], "name": "military-skill", "dpi": 450, "tol": 26, "minspeck": 200 },
+    { "page": 36, "rect": [240.1, 580.4, 263.5, 603.3], "name": "best-focus", "dpi": 450, "tol": 26, "minspeck": 200 },
+    { "page": 36, "rect": [238.4, 618.6, 265.2, 641.0], "name": "any-skill", "dpi": 450, "tol": 26, "minspeck": 200 },
+
+    { "page": 36, "rect": [303.6, 298.0, 330.8, 325.3], "name": "vp", "dpi": 450, "tol": 26, "minspeck": 200 },
+    { "page": 36, "rect": [307.5, 344.1, 326.9, 366.6], "name": "action", "dpi": 450, "tol": 26, "minspeck": 200 },
+    { "page": 36, "rect": [305.2, 382.5, 329.2, 408.7], "name": "away-team", "dpi": 450, "tol": 26, "minspeck": 200 },
+    { "page": 36, "rect": [304.2, 506.7, 330.2, 532.7], "name": "dilithium", "dpi": 450, "tol": 26, "minspeck": 200 },
+    { "page": 36, "rect": [304.1, 544.7, 330.3, 570.6], "name": "latinum", "dpi": 450, "tol": 26, "minspeck": 200 },
+    { "page": 36, "rect": [303.9, 583.7, 330.5, 609.6], "name": "glory", "dpi": 450, "tol": 26, "minspeck": 200 }
+  ]
+}

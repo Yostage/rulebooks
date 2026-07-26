@@ -650,6 +650,53 @@ Rulebooks.register({
 
     /* ---------------------------------------------------------------- */
     {
+      id: "faq",
+      title: "FAQ & Clarifications",
+      sections: [
+        {
+          id: "faq-general",
+          title: "FAQ: General",
+          summary: "Rulings on scanning, beaming, control, Glory, and missions.",
+          blocks: [
+            { t: "faq", items: [
+              { q: "When scanning for a trait, can I skip a matching card showing in the Market?", a: "No. If there is a card with the matching trait visible in the Market, you <strong>must</strong> take it (choosing among them if several match)." },
+              { q: "What if I scan for a trait and search all the appropriate decks without finding it?", a: "You receive 2 :glory: as compensation for not getting a card." },
+              { q: "What parts of a beamed card are active?", a: "Only its <strong>name, suit, and traits</strong>. Ignore everything else about the card — operations, Skill icons, etc. Beamed cards are still scored at the end of the game." },
+              { q: "How exactly does Glory substitution work?", a: "1 :glory: can be spent in lieu of 2 :dilithium: (<strong>no change given!</strong>) or 1 :latinum:. Exception: Captain Burnham (Core Box) cannot convert Glory to Dilithium due to her PASSIVE." },
+              { q: "When I take control of a Location, what does my opponent get?", a: "They gain 1 :glory: for each token (Ship or Away Team) they have there." },
+              { q: "Do I have to take control of a secured Location?", a: "No — taking control is <strong>optional</strong>, and you may take control of only <strong>one</strong> :location: during your Control Step." },
+              { q: "What happens to Ships used to take control of a Location?", a: "The Ships — and all cards beamed under them — are dismissed." },
+              { q: "Can I use a card's REACTION and its ACTIVATION on the same turn?", a: "Generally no: both exhaust the card, so once one is used the other is unavailable — unless something refreshes the card." },
+              { q: "What are my Focus-icon cards worth if I complete no missions?", a: "All of your variable-VP cards based on Specialties (Focus icons) are worth <strong>0</strong> :vp:." },
+              { q: "Can I take Glory from the supply instead of the Stardate card?", a: "No — Glory must come from the Stardate card. Exceptions: Cadet Training mode, and after the Resolution has been triggered." },
+              { q: "Can I place an Away Team where my opponent has Ships?", a: "Not if your opponent has <strong>more Ship tokens</strong> there than you." },
+              { q: "Can I enlist a Development while Reserve cards remain?", a: "Yes, if a card explicitly instructs you to — you still have to pay its development cost unless stated otherwise." },
+              { q: "Does Utilize advance every listed Specialty track?", a: "No — you gain on <strong>one</strong> Specialty track only. Slashes (“/”) mean <strong>or</strong>, not <em>and</em>." },
+              { q: "When exactly are contributing beamed cards dismissed from a mission?", a: "<strong>After</strong> resolving the mission's REWARD, dismiss all beamed cards that contributed to completing it." },
+            ] },
+          ],
+        },
+        {
+          id: "faq-solo",
+          title: "FAQ: Solo Bot",
+          summary: "Rulings for full solo play against the Bot.",
+          blocks: [
+            { t: "p", html: "These clarifications concern the full solo mode against the Bot (see the separate solo rulebook — distinct from Cadet Training)." },
+            { t: "faq", items: [
+              { q: "How does the Bot decide a Location is secured enough?", a: "The Bot plays as if it needs at least <strong>4 tokens</strong> at a :location: (rather than 3) and a <strong>3-token advantage</strong> (rather than 2), and it <strong>stops</strong> adding once it hits those levels — but during its Control Step it takes control under the normal thresholds, just like you. This helps the Bot hedge its bets against you." },
+              { q: "Where does the Bot send Away Teams?", a: "It prefers the :location: where 1) it has the most tokens, then 2) the most :vp:." },
+              { q: "Where does the Bot warp when exploring?", a: "To the :location: with the <strong>fewest total tokens</strong> — most preferring ones with none. Ties go to the most valuable." },
+              { q: "Where does the Bot warp when engaging?", a: "To the :location: where <strong>you</strong> have the most tokens. Ties go to the most valuable." },
+              { q: "Where do resolved Locations go?", a: "Into the <strong>Control area</strong>, not the discard — even if the card came from the draw deck. (Spelled out on the back page of the solo rules and in the example of play, but not in the main text.)" },
+              { q: "The Bot secured a Location with a Ship — anything to remember?", a: "Don't forget to dismiss the Ship card back to the discard pile." },
+            ] },
+          ],
+        },
+      ],
+    },
+
+    /* ---------------------------------------------------------------- */
+    {
       id: "reference",
       title: "Reference",
       sections: [
